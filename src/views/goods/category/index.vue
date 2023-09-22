@@ -87,7 +87,7 @@ const columns = reactive([
     formType: "tree-select",
     search: false,
     commonRules: {
-      required: true,
+      required: false,
       message: "请输入上级ID"
     },
     type: "select",

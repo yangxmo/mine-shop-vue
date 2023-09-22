@@ -90,7 +90,7 @@ function createRequest (service) {
     const configDefault = {
       headers: {
         Authorization: "Bearer " + token,
-        'TenantId': "tourist",
+        'X-Tenant-Id': "tourist",
         'Accept-Language': setting.language || 'zh_CN',
         'Content-Type': get(config, 'headers.Content-Type', 'application/json;charset=UTF-8')
       },

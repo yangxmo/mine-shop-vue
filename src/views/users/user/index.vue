@@ -32,7 +32,7 @@
 </template>
 <script setup>
 import {ref, reactive} from 'vue'
-import userData from '@/api/user/userData'
+import user from '@/api/users/user'
 import {Message} from '@arco-design/web-vue'
 import tool from '@/utils/tool'
 import * as common from '@/utils/common'
@@ -41,7 +41,7 @@ const crudRef = ref()
 
 
 const numberOperation = (newValue, id, numberName) => {
-  userData.numberOperation({id, numberName, numberValue: newValue}).then(res => {
+  user.numberOperation({id, numberName, numberValue: newValue}).then(res => {
     res.success && Message.success(res.message)
   }).catch(e => {
     console.log(e)
@@ -49,7 +49,7 @@ const numberOperation = (newValue, id, numberName) => {
 }
 
 const switchStatus = (statusValue, id, statusName) => {
-  userData.changeStatus({id, statusName, statusValue}).then(res => {
+  user.changeStatus({id, statusName, statusValue}).then(res => {
     res.success && Message.success(res.message)
   }).catch(e => {
     console.log(e)
@@ -58,7 +58,7 @@ const switchStatus = (statusValue, id, statusName) => {
 
 
 const options = reactive({
-  id: 'ms_user_data',
+  id: 'ms_users_user',
   rowSelection: {
     showCheckedAll: true
   },
@@ -69,34 +69,34 @@ const options = reactive({
     viewType: 'drawer',
     width: 500
   },
-  api: userData.getList,
-  recycleApi: userData.getRecycleList,
+  api: user.getList,
+  recycleApi: user.getRecycleList,
   add: {
     show: true,
-    api: userData.save,
-    auth: ['user:data:save']
+    api: user.save,
+    auth: ['users:user:save']
   },
   edit: {
     show: true,
-    api: userData.update,
-    auth: ['user:data:update']
+    api: user.update,
+    auth: ['users:user:update']
   },
   delete: {
     show: true,
-    api: userData.deletes,
-    auth: ['user:data:delete'],
-    realApi: userData.realDeletes,
-    realAuth: ['user:data:realDeletes']
+    api: user.deletes,
+    auth: ['users:user:delete'],
+    realApi: user.realDeletes,
+    realAuth: ['users:user:realDeletes']
   },
   recovery: {
     show: true,
-    api: userData.recoverys,
-    auth: ['user:data:recovery']
+    api: user.recoverys,
+    auth: ['users:user:recovery']
   },
   export: {
     show: true,
-    url: 'user/data/export',
-    auth: ['user:data:export']
+    url: 'users/user/export',
+    auth: ['users:user:export']
   }
 })
 
@@ -256,4 +256,4 @@ const columns = reactive([
   }
 ])
 </script>
-<script> export default {name: 'user:data'} </script>
+<script> export default {name: 'users:user'} </script>

@@ -124,7 +124,7 @@
     const params = {
       group_id: id,
       orderBy: 'sort',
-      orderType: 'desc'
+      orderType: 'asc'
     }
     const response = await config.getConfigList(params)
     let form = {}

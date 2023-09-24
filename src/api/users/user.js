@@ -12,7 +12,7 @@ export default {
    */
   getList (params = {}) {
     return request({
-      url: 'user/data/index',
+      url: 'users/user/index',
       method: 'get',
       params
     })
@@ -24,7 +24,7 @@ export default {
    */
   save (data = {}) {
     return request({
-      url: 'user/data/save',
+      url: 'users/user/save',
       method: 'post',
       data
     })
@@ -36,7 +36,7 @@ export default {
    */
   update (id, data = {}) {
     return request({
-      url: 'user/data/update/' + id,
+      url: 'users/user/update/' + id,
       method: 'put',
       data
     })
@@ -48,7 +48,7 @@ export default {
    */
   read (id) {
     return request({
-      url: 'user/data/read/' + id,
+      url: 'users/user/read/' + id,
       method: 'get',
       data
     })
@@ -60,7 +60,7 @@ export default {
    */
   deletes (data) {
     return request({
-      url: 'user/data/delete',
+      url: 'users/user/delete',
       method: 'delete',
       data
     })
@@ -72,7 +72,7 @@ export default {
    */
   getRecycleList (params = {}) {
     return request({
-      url: 'user/data/recycle',
+      url: 'users/user/recycle',
       method: 'get',
       params
     })
@@ -84,7 +84,7 @@ export default {
    */
   recoverys (data) {
     return request({
-      url: 'user/data/recovery',
+      url: 'users/user/recovery',
       method: 'put',
       data
     })
@@ -96,7 +96,7 @@ export default {
    */
   realDeletes (data) {
     return request({
-      url: 'user/data/realDelete',
+      url: 'users/user/realDelete',
       method: 'delete',
       data
     })
@@ -108,7 +108,7 @@ export default {
    */
   changeStatus (data = {}) {
     return request({
-      url: 'user/data/changeStatus',
+      url: 'users/user/changeStatus',
       method: 'put',
       data
     })
@@ -120,7 +120,7 @@ export default {
    */
   numberOperation (data = {}) {
     return request({
-      url: 'user/data/numberOperation',
+      url: 'users/user/numberOperation',
       method: 'put',
       data
     })
@@ -132,7 +132,7 @@ export default {
    */
   exportExcel (params = {}) {
     return request({
-      url: 'user/data/export',
+      url: 'users/user/export',
       method: 'post',
       responseType: 'blob',
       params

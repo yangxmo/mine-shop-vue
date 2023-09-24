@@ -206,9 +206,6 @@ const columns = reactive([
     type: "video",
   },
   {
-    title: '产品分组', dataIndex: 'goods_category_name', hide: false, formType: 'input', editDisplay: false, addDisplay: false
-  },
-  {
     title: '产品分组', dataIndex: 'goods_category_id', hide: true, formType: 'tree-select', select: true,
     dict: { url: 'goods/category/tree' }, params: { onlyMenu: true } ,
     commonRules: [{ required: true, message: '产品分组必选' }],

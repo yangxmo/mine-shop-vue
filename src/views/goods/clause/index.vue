@@ -75,6 +75,7 @@ const columns = reactive([
     dataIndex: "term",
     formType: "checkbox",
     search: true,
+    width: 250,
     commonRules: {
       required: true,
       message: "请输入服务条款"
@@ -110,41 +111,24 @@ const columns = reactive([
     }
   },
   {
-    title: "服务条款排序",
+    title: "排序",
     dataIndex: "sort",
-    formType: "input",
+    formType: "input-number",
+    addDefaultValue: 0,
+    min:0,
     commonRules: {
       required: true,
       message: "请输入服务条款排序"
     }
   },
   {
-    title: "",
+    title: "创建时间",
     dataIndex: "created_at",
     formType: "date",
     addDisplay: false,
     editDisplay: false,
-    hide: true,
-    showTime: true
+    width: 150
   },
-  {
-    title: "",
-    dataIndex: "updated_at",
-    formType: "date",
-    addDisplay: false,
-    editDisplay: false,
-    hide: true,
-    showTime: true
-  },
-  {
-    title: "",
-    dataIndex: "deleted_at",
-    formType: "date",
-    addDisplay: false,
-    editDisplay: false,
-    hide: true,
-    showTime: true
-  }
 ])
 </script>
 <script> export default { name: 'goods:clause' } </script>

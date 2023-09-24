@@ -2,6 +2,25 @@
   <div class="ma-content-block lg:flex justify-between p-4">
     <!-- CRUD 组件 -->
     <ma-crud :options="options" :columns="columns" ref="crudRef">
+      <!-- 排序列 -->
+      <template #sort="{ record }">
+        <a-input-number
+            :default-value="record.sort"
+            mode="button"
+            @change="changeSort($event, record.id)"
+            :min="0"
+            :max="1000"
+        />
+      </template>
+      <!-- 状态列 -->
+      <template #status="{ record }">
+        <a-switch
+            :checked-value="1"
+            unchecked-value="2"
+            @change="switchStatus($event, record.id, 'status')"
+            :default-checked="record.status == 1"
+        />
+      </template>
     </ma-crud>
   </div>
 </template>
@@ -11,15 +30,21 @@ import goodsCategory from '@/api/goods/goodsCategory'
 import { Message } from '@arco-design/web-vue'
 import tool from '@/utils/tool'
 import * as common from '@/utils/common'
+import menu from "@/api/system/menu";
 
 const crudRef = ref()
-
-
 
 const switchStatus = (statusValue, id, statusName) => {
   goodsCategory.changeStatus({ id, statusName, statusValue }).then( res => {
     res.success && Message.success(res.message)
   }).catch( e => { console.log(e) } )
+}
+
+const changeSort = async (value, id) => {
+  const response = await goodsCategory.numberOperation({ id, numberName: 'sort', numberValue: value })
+  if (response.success) {
+    Message.success(response.message)
+  }
 }
 
 
@@ -32,9 +57,10 @@ const options = reactive({
   operationColumn: true,
   operationWidth: 160,
   formOption: {
-    viewType: 'modal',
+    viewType: 'drawer',
     width: 600
   },
+  isExpand: true,
   api: goodsCategory.getList,
   recycleApi: goodsCategory.getRecycleList,
   add: {
@@ -82,16 +108,11 @@ const columns = reactive([
     hide: true
   },
   {
-    title: "上级ID",
-    dataIndex: "parent_id",
-    formType: "tree-select",
-    search: false,
-    commonRules: {
-      required: false,
-      message: "请输入上级ID"
-    },
-    type: "select",
-    mode: "name"
+    title: '上级分类', dataIndex: 'parent_id', hide: true, formType: 'tree-select',
+    dict: { url: 'goods/category/tree', params: { onlyMenu: true } },
+    editDefaultValue: (record) => {
+      return record.parent_id == 0 ? undefined : record.parent_id
+    }
   },
   {
     title: "分组名称",

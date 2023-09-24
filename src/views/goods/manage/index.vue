@@ -156,7 +156,7 @@ const columns = reactive([
   },
   {
     title: "商品单位",
-    dataIndex: "goods_unit",
+    dataIndex: "affiliate.goods_unit",
     formType: "input",
     defaultValue:0,
     search: false,
@@ -253,11 +253,11 @@ const columns = reactive([
       data: [
         {
           label: "中文",
-          value: "1"
+          value: 1
         },
         {
           label: "英文",
-          value: "2"
+          value: 2
         }
       ],
       translation: true
@@ -265,7 +265,7 @@ const columns = reactive([
   },
   {
     title: "预售产品",
-    dataIndex: "goods_is_presell",
+    dataIndex: "affiliate.goods_is_presell",
     formType: "select",
     search: true,
     hide:true,
@@ -289,7 +289,7 @@ const columns = reactive([
   },
   {
     title: "限购产品",
-    dataIndex: "goods_is_purchase",
+    dataIndex: "affiliate.goods_is_purchase",
     formType: "select",
     search: true,
     commonRules: {
@@ -312,7 +312,7 @@ const columns = reactive([
   },
   {
     title: "限购类型",
-    dataIndex: "goods_purchase_type",
+    dataIndex: "affiliate.goods_purchase_type",
     formType: "select",
     search: true,
     hide:true,
@@ -336,7 +336,7 @@ const columns = reactive([
   },
   {
     title: "限购商品数量",
-    dataIndex: "goods_purchase_num",
+    dataIndex: "affiliate.goods_purchase_num",
     formType: "input-number",
     min: 0,
     max: 999999,
@@ -350,7 +350,7 @@ const columns = reactive([
   },
   {
     title: "会员商品",
-    dataIndex: "goods_is_vip",
+    dataIndex: "affiliate.goods_is_vip",
     formType: "select",
     search: true,
     commonRules: {
@@ -373,7 +373,7 @@ const columns = reactive([
   },
   {
     title: "购买送积分",
-    dataIndex: "goods_buy_point",
+    dataIndex: "affiliate.goods_buy_point",
     formType: "input-number",
     min: 0,
     max: 999999,
@@ -387,7 +387,7 @@ const columns = reactive([
   },
   {
     title: "商品已售数量",
-    dataIndex: "goods_sales",
+    dataIndex: "affiliate.goods_sales",
     formType: "input-number",
     min: 0,
     max: 999999,
@@ -401,7 +401,7 @@ const columns = reactive([
   },
   {
     title: "物流方式",
-    dataIndex: "goods_logistics_type",
+    dataIndex: "affiliate.goods_logistics_type",
     formType: "select",
     search: true,
     hide:true,
@@ -425,7 +425,7 @@ const columns = reactive([
   },
   {
     title: "运费方式",
-    dataIndex: "goods_freight_type",
+    dataIndex: "affiliate.goods_freight_type",
     formType: "select",
     search: true,
     hide:true,
@@ -449,7 +449,7 @@ const columns = reactive([
   },
   {
     title: "商品推荐",
-    dataIndex: "goods_recommend",
+    dataIndex: "affiliate.goods_recommend",
     formType: "select",
     search: true,
     commonRules: {

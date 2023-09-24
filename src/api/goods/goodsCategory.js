@@ -115,6 +115,18 @@ export default {
   },
 
   /**
+   * 数字运算操作
+   * @returns
+   */
+  numberOperation(data = {}) {
+    return request({
+      url: 'goods/category/numberOperation',
+      method: 'put',
+      data
+    })
+  },
+
+  /**
    * 更新商品分类数据
    * @returns
    */

@@ -1,8 +1,8 @@
 <!--
- - MineAdmin is committed to providing solutions for quickly building web applications
+ - MineShop is committed to providing solutions for quickly building web applications
  - Please view the LICENSE file that was distributed with this source code,
  - For the full copyright and license information.
- - Thank you very much for using MineAdmin.
+ - Thank you very much for using MineShop.
  -
  - @Author X.Mo<root@imoi.cn>
  - @Link   https://gitee.com/xmo/mineadmin-vue
@@ -61,7 +61,7 @@
           <a-descriptions-item label="PHP版本">{{ phpenv.php_version }}</a-descriptions-item>
           <a-descriptions-item label="Swoole版本">{{ phpenv.swoole_version }}</a-descriptions-item>
           <a-descriptions-item label="Hyperf版本">{{ phpenv.hyperf_version }}</a-descriptions-item>
-          <a-descriptions-item label="MineAdmin版本">{{ phpenv.mineadmin_version }}</a-descriptions-item>
+          <a-descriptions-item label="MineShop版本">{{ phpenv.mineadmin_version }}</a-descriptions-item>
           <a-descriptions-item label="系统物理路径">{{ phpenv.project_path }}</a-descriptions-item>
           <a-descriptions-item label="系统启动时间">{{ phpenv.start_time }}</a-descriptions-item>
           <a-descriptions-item label="系统运行时间">{{ phpenv.run_time }}</a-descriptions-item>

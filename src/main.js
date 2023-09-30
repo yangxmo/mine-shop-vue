@@ -11,7 +11,7 @@ import directives from './directives'
 
 // 官方样式
 // import '@arco-design/web-vue/dist/arco.css'
-// MineAdmin-V2样式
+// MineShop-V2样式
 import '@arco-themes/vue-mine-admin-v2/index.less'
 import './style/skin.less'
 import './style/index.css'
@@ -45,9 +45,9 @@ app.config.globalProperties.$title = import.meta.env.VITE_APP_TITLE
 
 app.mount('#app')
 
-tool.capsule('MineAdmin', `v${packageJson.version} release`)
-console.log('MineAdmin 官网  https://www.mineadmin.com')
-console.log('MineAdmin 文档  https://doc.mineadmin.com')
-console.log('MineAdmin Github https://github.com/kanyxmo/MineAdmin')
-console.log('MineAdmin-Vue Github https://github.com/kanyxmo/MineAdmin-Vue')
+tool.capsule('MineShop', `v${packageJson.version} release`)
+console.log('MineShop 官网  https://www.mineadmin.com')
+console.log('MineShop 文档  https://doc.mineadmin.com')
+console.log('MineShop Github https://github.com/kanyxmo/MineShop')
+console.log('MineShop-Vue Github https://github.com/kanyxmo/MineShop-Vue')
 console.log('请不要吝啬您的 star，谢谢 ~ 🤩🤩🤩')

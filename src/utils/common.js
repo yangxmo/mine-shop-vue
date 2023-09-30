@@ -230,12 +230,12 @@ export const loadCss = (href, callback) => {
 // 插入css
 export const insertGlobalCssToHead = (cssCode) => {
   const head = document.getElementsByTagName('head')[0]
-  const oldStyle = document.getElementById('mineadmin-global-css')
+  const oldStyle = document.getElementById('mineshop-global-css')
   oldStyle && head.removeChild(oldStyle)
 
   const newStyle = document.createElement('style')
   newStyle.rel = 'stylesheet'
-  newStyle.id = 'mineadmin-global-css'
+  newStyle.id = 'mineshop-global-css'
   try {
     newStyle.appendChild(document.createTextNode(cssCode))
   } catch(ex) {
@@ -248,11 +248,11 @@ export const insertGlobalCssToHead = (cssCode) => {
 // 插入js函数
 export const insertGlobalFunctionsToHtml = function (functionsCode) {
   const bodyEle = document.getElementsByTagName('body')[0]
-  const oldScriptEle = document.getElementById('mineadmin-global-functions')
+  const oldScriptEle = document.getElementById('mineshop-global-functions')
   oldScriptEle && bodyEle.removeChild(oldScriptEle)
 
   const newScriptEle = document.createElement('script')
-  newScriptEle.id = 'mineadmin-global-functions'
+  newScriptEle.id = 'mineshop-global-functions'
   newScriptEle.type = 'text/javascript'
   newScriptEle.innerHTML = functionsCode
   bodyEle.appendChild(newScriptEle)

@@ -1,8 +1,8 @@
 <!--
- - MineAdmin is committed to providing solutions for quickly building web applications
+ - MineShop is committed to providing solutions for quickly building web applications
  - Please view the LICENSE file that was distributed with this source code,
  - For the full copyright and license information.
- - Thank you very much for using MineAdmin.
+ - Thank you very much for using MineShop.
  -
  - @Author X.Mo<root@imoi.cn>
  - @Link   https://gitee.com/xmo/mineadmin-vue
@@ -35,7 +35,7 @@
       class="footer"
       :style="`background-color: ${appStore.mode == 'light' ? '#fff' : '#242424'}`"
     >
-      MineAdmin v{{ config.version }} release Copyright © 2021-{{dayjs().format('YYYY')}} mineadmin.com All Rights Reserved.
+      MineShop v{{ config.version }} release Copyright © 2021-{{dayjs().format('YYYY')}} mineshop.com All Rights Reserved.
     </a-layout-footer>
   </a-layout>
 </template>

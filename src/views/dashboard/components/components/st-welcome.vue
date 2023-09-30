@@ -1,8 +1,8 @@
 <!--
- - MineAdmin is committed to providing solutions for quickly building web applications
+ - MineShop is committed to providing solutions for quickly building web applications
  - Please view the LICENSE file that was distributed with this source code,
  - For the full copyright and license information.
- - Thank you very much for using MineAdmin.
+ - Thank you very much for using MineShop.
  -
  - @Author X.Mo<root@imoi.cn>
  - @Link   https://gitee.com/xmo/mineadmin-vue
@@ -25,7 +25,7 @@
           </div>
           <div class="leading-5 mt-2">
             <a-tag color="blue" bordered>免费开源、可商用</a-tag>
-            欢迎使用MineAdmin后台权限管理系统，系统开源、免费使用。喜欢的请点个 ⭐Star。
+            欢迎使用MineShop后台权限管理系统，系统开源、免费使用。喜欢的请点个 ⭐Star。
             <a-space size="large">
               <a-link @click="donate"><icon-thumb-up /> 给作者买杯奶茶</a-link>
             </a-space>

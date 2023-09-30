@@ -1,8 +1,8 @@
 <!--
- - MineAdmin is committed to providing solutions for quickly building web applications
+ - MineShop is committed to providing solutions for quickly building web applications
  - Please view the LICENSE file that was distributed with this source code,
  - For the full copyright and license information.
- - Thank you very much for using MineAdmin.
+ - Thank you very much for using MineShop.
  -
  - @Author X.Mo<root@imoi.cn>
  - @Link   https://gitee.com/xmo/mineadmin-vue
@@ -50,7 +50,7 @@
   const crudRef = ref()
   const selecteds = ref([])
   const visible = ref(false)
-  const sourceName = ref('MineAdmin')
+  const sourceName = ref('MineShop')
   const newName = ref({})
   const newComment = ref({})
   const emit = defineEmits(['success'])
@@ -61,22 +61,22 @@
     dataSourceList.value = res.data.items
     dataSourceList.value.unshift({
       label: '系统数据源',
-      value: 'MineAdmin'
+      value: 'MineShop'
     })
   })
 
   const switchSource = () => {
     const newNameColumn = columns.find(item => item.dataIndex === 'new_name')
     const newCommentColumn = columns.find(item => item.dataIndex === 'new_comment')
-    if (sourceName.value === 'MineAdmin') {
+    if (sourceName.value === 'MineShop') {
       newNameColumn.hide = true
       newCommentColumn.hide = true
     } else {
       newNameColumn.hide = false
       newCommentColumn.hide = false
     }
-    crud.api = sourceName.value === 'MineAdmin' ? dataMaintain.getPageList : dataSource.getDataSourceTablePageList
-    crudRef.value.requestParams['id'] = sourceName.value === 'MineAdmin' ? undefined : sourceName.value
+    crud.api = sourceName.value === 'MineShop' ? dataMaintain.getPageList : dataSource.getDataSourceTablePageList
+    crudRef.value.requestParams['id'] = sourceName.value === 'MineShop' ? undefined : sourceName.value
     crudRef.value.requestData()
   }
 

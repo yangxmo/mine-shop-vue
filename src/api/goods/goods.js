@@ -35,7 +35,6 @@ export default {
      * @returns
      */
     update (id, data = {}) {
-        console.log(data)
         return request({
             url: 'goods/manage/update/' + id,
             method: 'put',

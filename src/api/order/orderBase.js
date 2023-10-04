@@ -33,11 +33,10 @@ export default {
      * 读取订单基础表
      * @returns
      */
-    read (id) {
+    read (order_no) {
         return request({
-            url: 'order/base/read/' + id,
+            url: 'order/base/read?order_no=' + order_no,
             method: 'get',
-            data
         })
     },
 
@@ -54,5 +53,15 @@ export default {
         })
     },
 
-
+    /**
+     * 取消订单
+     * @returns
+     */
+    cancel (data) {
+        return request({
+            url: 'order/base/cancel',
+            method: 'put',
+            data
+        })
+    },
 }

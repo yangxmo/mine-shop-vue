@@ -5,37 +5,81 @@
       <!-- 操作列扩展 -->
       <template #operationAfterExtend="{ record }">
 
-        <a-space v-if="record.order_status == 4">
-          <a-button type="primary" v-auth="['order:base:audit']" @click="openDeliver(record)">发货</a-button>
-        </a-space>
-
         <a-space>
           <a-button type="primary" v-auth="['order:base:read']" @click="openInfo(record)">详情</a-button>
         </a-space>
 
+        <a-dropdown trigger="hover" @select="selectOperation($event, record.id)">
+          <a-link>
+            <icon-double-right/>
+            更多
+          </a-link>
+          <template #content>
+            <a-doption v-if="record.order_status == 4" @click="openDeliver(record)" v-auth="['order:base:deliver']">
+              订单发货
+            </a-doption>
+            <a-doption v-if="record.order_status == 4" @click="openCancelOrder(record)" v-auth="['order:base:cancel']">
+              取消订单
+            </a-doption>
+            <a-doption value="resetPassword" v-auth="['system:user:initUserPassword']">重置密码</a-doption>
+          </template>
+        </a-dropdown>
       </template>
     </ma-crud>
 
-    <deliver ref="deliver" />
-    <info ref="info" />
+    <a-modal v-model:visible="visible" v-model:order_no="order_no" @ok="cancelAsk" @cancel="handleCancel">
+      <template #title>
+        取消订单
+      </template>
+      <div>是否确认取消订单？，取消订单将自动退款.</div>
+    </a-modal>
+
+    <deliver ref="deliver"/>
+    <info ref="info"/>
 
   </div>
 </template>
 <script setup>
-import { ref, reactive } from 'vue'
+import {ref, reactive} from 'vue'
 import orderBase from '@/api/order/orderBase'
 import * as common from '@/utils/common'
 import Info from './compoments/info.vue'
 import Deliver from './compoments/deliver.vue'
 import Audit from "@/views/order/refund/compoments/audit.vue";
+import {Message, Modal} from "@arco-design/web-vue";
 
 const crudRef = ref()
 const info = ref()
 const deliver = ref()
+const visible = ref(false)
+const order_no = ref()
 
 // 发货
 const openDeliver = (record) => {
   deliver.value.open(record);
+}
+
+const selectOperation = (value, id) => {
+}
+
+const openCancelOrder = (record) => {
+  visible.value = true;
+  order_no.value = record.order_no;
+}
+
+const handleCancel = () => {
+  visible.value = false;
+}
+
+const cancelAsk = async () => {
+  visible.value = false;
+  orderBase.cancel({order_no: order_no.value}).then(result => {
+    if (result.code === 200) {
+      Message.success('订单取消成功')
+    } else {
+      Message.error('订单取消失败,' + result.message)
+    }
+  })
 }
 
 // 详情
@@ -77,8 +121,17 @@ const columns = reactive([
     }
   },
   {
+    title: "用户ID",
+    dataIndex: "order_create_user_id",
+    formType: "input",
+    search: true,
+    addDisplay: false,
+    editDisplay: false
+  },
+  {
     title: "订单号",
     dataIndex: "order_no",
+    width: 120,
     formType: "input",
     search: true,
     addDisplay: false,
@@ -129,14 +182,6 @@ const columns = reactive([
     addDisplay: false,
     editDisplay: false,
     hide: true
-  },
-  {
-    title: "用户ID",
-    dataIndex: "order_create_user_id",
-    formType: "input",
-    search: true,
-    addDisplay: false,
-    editDisplay: false
   },
   {
     title: "订单状态",
@@ -298,4 +343,4 @@ const columns = reactive([
   }
 ])
 </script>
-<script> export default { name: 'order:base' } </script>
+<script> export default {name: 'order:base'} </script>

@@ -29,8 +29,6 @@ const options = ref({
 
 const open = async (record) => {
   visible.value = true
-  const response = await orderBase.read(record.order_no)
-  form.value = response.data
 }
 
 const columns = ref([

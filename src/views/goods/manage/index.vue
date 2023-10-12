@@ -115,12 +115,10 @@ const columns = reactive([
               formType: "upload",
               commonRules: {
                 required: true,
-                message: "请输入商品图片"
+                message: "请选择商品首图"
               },
               type: "image",
-              multiple: true,
-              addDisplay: false,
-              editDisplay: false,
+              multiple: false,
               onlyData: true,
               returnType: "url"
             },]
@@ -135,7 +133,7 @@ const columns = reactive([
                 hide: true,
                 commonRules: {
                   required: true,
-                  message: "请输入商品图片"
+                  message: "请选择商品图片"
                 },
                 type: "image",
                 multiple: true,
@@ -314,7 +312,7 @@ const columns = reactive([
                 hide: true,
                 commonRules: {
                   required: true,
-                  message: "请选择是否预售（1否2是）"
+                  message: "请选择是否预售"
                 },
                 dict: {
                   data: [
@@ -335,9 +333,10 @@ const columns = reactive([
                 dataIndex: "affiliate.goods_is_purchase",
                 formType: "select",
                 search: true,
+                hide: true,
                 commonRules: {
                   required: true,
-                  message: "请选择是否限购（1否2是）"
+                  message: "请选择是否限购"
                 },
                 dict: {
                   data: [
@@ -365,7 +364,7 @@ const columns = reactive([
                 hide: true,
                 commonRules: {
                   required: true,
-                  message: "请选择限购类型（1否2是）"
+                  message: "请选择限购类型"
                 },
                 dict: {
                   data: [
@@ -380,8 +379,6 @@ const columns = reactive([
                   ],
                   translation: true
                 },
-                addDisplay: false,
-                editDisplay: false
               },
               {
                 title: "限购数量",
@@ -396,8 +393,6 @@ const columns = reactive([
                   required: true,
                   message: "请输入限购数量"
                 },
-                addDisplay: false,
-                editDisplay: false
               },
             ]
           }
@@ -431,8 +426,6 @@ const columns = reactive([
                   ],
                   translation: true
                 },
-                addDisplay: false,
-                editDisplay: false
               },
               {
                 title: "购买送积分",
@@ -445,10 +438,8 @@ const columns = reactive([
                 hide: true,
                 commonRules: {
                   required: true,
-                  message: "请输入限购数量"
+                  message: "请输入购买送积分"
                 },
-                addDisplay: false,
-                editDisplay: false
               },
             ]
           },
@@ -476,8 +467,6 @@ const columns = reactive([
                   ],
                   translation: true
                 },
-                addDisplay: false,
-                editDisplay: false
               },
               {
                 title: "商品已售数量",
@@ -492,8 +481,6 @@ const columns = reactive([
                   required: true,
                   message: "请输入已售数量"
                 },
-                addDisplay: false,
-                editDisplay: false
               },
             ]
           }
@@ -536,8 +523,6 @@ const columns = reactive([
                   ],
                   translation: true
                 },
-                addDisplay: false,
-                editDisplay: false
               },
             ]
           },
@@ -565,8 +550,6 @@ const columns = reactive([
                   ],
                   translation: true
                 },
-                addDisplay: false,
-                editDisplay: false
               },
             ]
           }
@@ -649,8 +632,6 @@ const columns = reactive([
                 dataIndex: "goods_description",
                 formType: "editor",
                 hide: true,
-                addDisplay: false,
-                editDisplay: false
               }
             ]
           }
@@ -891,6 +872,130 @@ const columns = reactive([
     },
     addDisplay: false,
     editDisplay: false
+  },
+  {
+    title: "限购类型",
+    dataIndex: "affiliate.goods_purchase_type",
+    formType: "select",
+    search: true,
+    hide: true,
+    commonRules: {
+      required: true,
+      message: "请选择限购类型"
+    },
+    dict: {
+      data: [
+        {
+          label: "单次限购",
+          value: "1"
+        },
+        {
+          label: "全部限购",
+          value: "2"
+        }
+      ],
+      translation: true
+    },
+    addDisplay: false,
+    editDisplay: false
+  },
+  {
+    title: "限购数量",
+    dataIndex: "affiliate.goods_purchase_num",
+    formType: "input-number",
+    min: 0,
+    max: 999999,
+    hide: true,
+    defaultValue: 0,
+    search: false,
+    commonRules: {
+      required: true,
+      message: "请输入限购数量"
+    },
+    addDisplay: false,
+    editDisplay: false
+  },
+  {
+    title: "物流方式",
+    dataIndex: "affiliate.goods_logistics_type",
+    formType: "select",
+    search: true,
+    commonRules: {
+      required: true,
+      message: "请选择商品物流方式（1物流2门店自提）"
+    },
+    dict: {
+      data: [
+        {
+          label: "物流",
+          value: "1"
+        },
+        {
+          label: "自提",
+          value: "2"
+        }
+      ],
+      translation: true
+    },
+    addDisplay: false,
+    editDisplay: false
+  },
+  {
+    title: "运费方式",
+    dataIndex: "affiliate.goods_freight_type",
+    formType: "select",
+    search: true,
+    commonRules: {
+      required: true,
+      message: "请选择商品运费方式（1固定邮费2运费模板）"
+    },
+    dict: {
+      data: [
+        {
+          label: "固定邮费",
+          value: "1"
+        },
+        {
+          label: "运费模板",
+          value: "2"
+        }
+      ],
+      translation: true
+    },
+    editDisplay: false,
+    addDisplay: false
+  },
+  {
+    title: "商品已售数量",
+    dataIndex: "affiliate.goods_sales",
+    formType: "input-number",
+    min: 0,
+    max: 999999,
+    defaultValue: 0,
+    search: false,
+    hide: true,
+    commonRules: {
+      required: true,
+      message: "请输入已售数量"
+    },
+    addDisplay: false,
+    editDisplay: false
+  },
+  {
+    title: "购买送积分",
+    dataIndex: "affiliate.goods_buy_point",
+    formType: "input-number",
+    min: 0,
+    max: 999999,
+    defaultValue: 0,
+    search: false,
+    hide: true,
+    commonRules: {
+      required: true,
+      message: "请输入购买送积分"
+    },
+    editDisplay: false,
+    addDisplay: false
   },
 ])
 </script>

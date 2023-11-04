@@ -564,11 +564,16 @@ const columns = reactive([
     customClass: ['mt-3', 'mb-5'],
     formList: [
       {
-        title: '属性信息', dataIndex: 'attributes_data', formType: 'children-form', type: 'table', emptyRow: 1,
+        title: '属性信息', dataIndex: 'attribute', formType: 'children-form', type: 'table', emptyRow: 1,
         formList: [
-          {title: '属性名称', dataIndex: 'attributes_name', rules: [{required: true, message: '请输入属性名称'}]},
-          {title: '属性值', dataIndex: 'value', rules: [{required: true, message: '请输入属性的值'}]},
-        ]
+          {title: '属性名称', dataIndex: 'attr_name', rules: [{required: true, message: '请输入属性名称'}]},
+        ],
+      },
+      {
+        title: '属性值信息', dataIndex: 'attribute_value', formType: 'children-form', type: 'table', emptyRow: 1,
+        formList: [
+          {title: '属性值名称', dataIndex: 'attr_value_data', rules: [{required: true, message: '请输入属性名称'}]},
+        ],
       },
       {
         title: '规格信息', dataIndex: 'sku_data', formType: 'children-form', type: 'table', emptyRow: 1,

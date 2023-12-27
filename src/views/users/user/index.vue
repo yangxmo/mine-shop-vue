@@ -182,7 +182,7 @@ const columns = reactive([
 
   {
     title: "真实姓名",
-    dataIndex: "real_name",
+    dataIndex: "truename",
     formType: "input",
     search: false
   },
@@ -208,32 +208,6 @@ const columns = reactive([
       ],
       translation: true
     }
-  },
-  {
-    title: "会员等级",
-    dataIndex: "level",
-    formType: "input-number",
-    min: 1,
-    max: 5,
-    search: true,
-    commonRules: {
-      required: true,
-      message: "请输入用户会员等级"
-    }
-  },
-  {
-    title: "邀请码",
-    dataIndex: "invite_code",
-    formType: "input",
-    search: false
-  },
-  {
-    title: "邀请人",
-    dataIndex: "invite_code_by",
-    formType: "input",
-    search: false,
-    addDisplay: false,
-    editDisplay: false
   },
   {
     title: "创建时间",
